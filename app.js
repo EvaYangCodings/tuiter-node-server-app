@@ -7,8 +7,9 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'))
 
 HelloController(app);
 UserController(app);
 TuitsController(app);
-app.listen(4000);
+app.listen(process.evn.PORT || 4000);
