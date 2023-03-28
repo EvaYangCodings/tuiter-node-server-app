@@ -3,7 +3,7 @@ const HelloController = (app) => {
         res.send('Life is good!')
     })
     
-    app.get('/test', (req, res) => {
+    app.get('/', (req, res) => {
         res.send('Welcome to Full Stack Developement!')
     })
 }
