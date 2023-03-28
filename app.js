@@ -12,4 +12,4 @@ app.use(express.static('public'))
 HelloController(app);
 UserController(app);
 TuitsController(app);
-app.listen(process.evn.PORT || 4000);
+app.listen(process.env.PORT || 4000);
