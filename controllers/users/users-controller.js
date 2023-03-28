@@ -35,6 +35,8 @@ const createUsers = (req, res) => {
 }
 
 const findUsers = (req, res) => {
+    console.log("Finding users...");
+
    const type = req.query.type
    if(type) {
     const userOfType = users.filter(
