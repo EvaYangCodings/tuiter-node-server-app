@@ -2,20 +2,16 @@
 import * as tuitsDao from './tuits-dao.js';
 // let tuits = posts;
 
-const TuitsController = (app) => {
-  app.post('/api/tuits', createTuit);
-  app.get('/api/tuits', findTuits);
-  app.put('/api/tuits/:tid', updateTuit);
-  app.delete('/api/tuits/:tid', deleteTuit);
-}
-
 
 const createTuit = async (req, res) => {
-  const newTuit = req.body;
-  newTuit.likes = 0;
-  newTuit.liked = false;
-  const insertedTuit = await tuitsDao.createTuit(newTuit);
-  res.json(insertedTuit);
+  // const newTuit = req.body;
+  // newTuit.likes = 0;
+  // newTuit.liked = false;
+  // const insertedTuit = await tuitsDao.createTuit(newTuit);
+  // res.json(insertedTuit);
+  const tuit = req.body;
+  const newTuit = await tuitsDao.createTuit(tuit);
+  res.json(newTuit);
 }
 
 const findTuits = async (req, res) => {
@@ -35,6 +31,11 @@ const deleteTuit = async (req, res) => {
   const status = await tuitsDao.deleteTuit(tuitIdToDelete);
   res.json(status);
 }
-
+const TuitsController = (app) => {
+  app.post('/api/tuits', createTuit);
+  app.get('/api/tuits', findTuits);
+  app.put('/api/tuits/:tid', updateTuit);
+  app.delete('/api/tuits/:tid', deleteTuit);
+}
 
 export default TuitsController;

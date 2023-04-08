@@ -1,10 +1,17 @@
 import mongoose from 'mongoose';
-import {Schema} from 'mongoose';
-
-const schema = mongoose.Schema({
+const tuitsSchema = new mongoose.Schema({
+  topic: String,
+  username: String,
+  handle: String,
+  time: String,
+  image: String,
+  title: String,
   tuit: String,
   likes: Number,
   liked: Boolean,
+  unlikes: Number,
+  replies: Number,
+  retuits: Number
 }, {collection: 'tuits'});
 
-export default schema;
+export default tuitsSchema;

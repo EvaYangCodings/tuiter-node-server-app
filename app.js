@@ -5,7 +5,7 @@ import TuitsController from './controllers/tuits/tuits-controller.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/tuitter');
+mongoose.connect('mongodb://127.0.0.1:27017/tuiter');
 
 const app = express();
 app.use(cors());
@@ -15,4 +15,5 @@ app.use(express.static('public'))
 HelloController(app);
 UserController(app);
 TuitsController(app);
+
 app.listen(process.env.PORT || 4000);
