@@ -10,12 +10,12 @@ const createTuit = async (req, res) => {
   // const insertedTuit = await tuitsDao.createTuit(newTuit);
   // res.json(insertedTuit);
   const tuit = req.body;
+  tuit.likes = 0;
+  tuit.liked = false;
+  tuit.unlikes = 0;
+  tuit.replies = 0;
+  tuit.retuits = 0;
   const newTuit = await tuitsDao.createTuit(tuit);
-  newTuit.likes = 0;
-  newTuit.liked = false;
-  newTuit.unlikes = 0;
-  newTuit.replies = 0;
-  newTuit.retuits = 0;
   res.json(newTuit);
 }
 
